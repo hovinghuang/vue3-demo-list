@@ -1,7 +1,11 @@
 <template>
   <div class="home">
     <!-- <nav-header></nav-header> -->
-    <nav-main msg="你好啊" name="Vue3"></nav-main>
+    <nav-main @sayHello="showHelloMsg" msg="你好啊" name="Vue3">
+      <template v-slot:qwe>
+        <span>插槽222</span>
+      </template>
+    </nav-main>
     <!-- <nav-footer></nav-footer> -->
     <!-- <div>名字: {{data.name}}</div>
     <div>年龄: {{data.age}}</div>
@@ -46,8 +50,12 @@ export default defineComponent({
     })
     // console.log("data:", data)
     data.job.salary = '60K'
+    const showHelloMsg = (value) => {
+      alert(`你好啊，${value}`)
+    }
     return {
-      data
+      data,
+      showHelloMsg
     }
   }
 })
