@@ -1,14 +1,13 @@
 <template>
   <div class="home">
-    <!-- <nav-header></nav-header>
-    <nav-main></nav-main>
-    <nav-footer></nav-footer> -->
-    <div>名字: {{data.name}}</div>
+    <!-- <nav-header></nav-header> -->
+    <nav-main msg="你好啊" name="Vue3"></nav-main>
+    <!-- <nav-footer></nav-footer> -->
+    <!-- <div>名字: {{data.name}}</div>
     <div>年龄: {{data.age}}</div>
     <div>职业: {{data.job.type}}</div>
     <div>薪水: {{data.job.salary}}</div>
-    <div>爱好: {{data.job.hobby}}</div>
-    <!-- <div>{{name}}</div> -->
+    <div>爱好: {{data.job.hobby}}</div> -->
   </div>
 </template>
 
