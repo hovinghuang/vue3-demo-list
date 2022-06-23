@@ -1,31 +1,47 @@
 <template>
   <div class="main">
     <h1>一个人的信息</h1>
-    <h2>姓名：{{msg}}</h2>
-    <h2>年龄：{{name}}</h2>
-    <button @click="onEmitFunc">触发emit</button>
-
+    姓: <input type="text" v-model="data.firstName">
+    <br>
+    名: <input type="text" v-model="data.lastName">
+    <br>
+    全名：: <input type="text" v-model="data.fullName">
+    <div>全名：{{data.fullName}}</div>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 export default {
   name: 'Main',
-  props: ['msg', 'name'],
+  // props: ['msg', 'name'],
+  // computed: {
+  //   fullName(){
+  //     return this.data.firstName + this.data.lastName
+  //   }
+  // },
   setup(props, context) {
-    console.log('---setup---props:', props)
-    console.log('---setup---context:', context)
-    console.log('---setup---context.attrs:', context.attrs)
-    console.log('---setup---context.emit:', context.emit)
-    console.log('---setup---context.expose:', context.expose)
-    console.log('---setup---context.slots:', context.slots)
+    const data = reactive({
+      firstName: '张',
+      lastName: '三',
+      fullName: ''
+    })
 
-    const onEmitFunc = () => {
-      context.emit('sayHello', 6666)
-    }
+    // data.fullName = computed(() => {
+    //   return data.firstName + '-' + data.lastName
+    // })
+    data.fullName = computed({
+      get() {
+        return data.firstName + '-' + data.lastName
+      },
+      set(value) {
+        const nameArr = value.split('-')
+        data.firstName = nameArr[0]
+        data.lastName = nameArr[1]
+      }
+    })
     return {
-      onEmitFunc
+      data
     }
   }
 }
