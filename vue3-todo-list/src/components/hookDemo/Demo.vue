@@ -8,7 +8,15 @@
 </template>
 
 <script>
-	import { ref } from 'vue'
+	import {
+        ref,
+        onBeforeMount,
+        onMounted,
+        onBeforeUpdate,
+        onUpdated,
+        onBeforeUnmount,
+        onUnmounted
+    } from 'vue'
 	import usePoint from '@/hooks/usePoint'
 	export default {
 		name: 'Demo',
@@ -17,8 +25,55 @@
 			let sum = ref(0)
 			let point = usePoint()
 			
+            //通过组合式API的形式去使用生命周期钩子
+			onBeforeMount(()=>{
+				console.log('---onBeforeMount---')
+			})
+			onMounted(()=>{
+				console.log('---onMounted---')
+			})
+			onBeforeUpdate(()=>{
+				console.log('---onBeforeUpdate---')
+			})
+			onUpdated(()=>{
+				console.log('---onUpdated---')
+			})
+			onBeforeUnmount(()=>{
+				console.log('---onBeforeUnmount---')
+			})
+			onUnmounted(()=>{
+				console.log('---onUnmounted---')
+			})
+            
 			// 返回一个对象（常用）
 			return { sum, point }
-		}
+		},
+        //通过配置项的形式使用生命周期钩子
+		//#region 
+		beforeCreate() {
+			console.log('---beforeCreate---')
+		},
+		created() {
+			console.log('---created---')
+		},
+		beforeMount() {
+			console.log('---beforeMount---')
+		},
+		mounted() {
+			console.log('---mounted---')
+		},
+		beforeUpdate(){
+			console.log('---beforeUpdate---')
+		},
+		updated() {
+			console.log('---updated---')
+		},
+		beforeUnmount() {
+			console.log('---beforeUnmount---')
+		},
+		unmounted() {
+			console.log('---unmounted---')
+		},
+		//#endregion
 	}
 </script>
