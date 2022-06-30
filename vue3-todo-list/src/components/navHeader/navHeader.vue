@@ -16,6 +16,6 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .header {
-    color: black;
+  color: black;
 }
 </style>

@@ -16,10 +16,10 @@
 </template>
 
 <script>
+import { defineComponent, ref, reactive, toRefs } from 'vue'
 import NavHeader from '@/components/navHeader/navHeader.vue'
 import NavMain from '@/components/navMain/navMain.vue'
 import NavFooter from '@/components/navFooter/navFooter.vue'
-import { defineComponent, ref, reactive, toRefs } from 'vue'
 
 export default defineComponent({
   name: 'HomeView',
