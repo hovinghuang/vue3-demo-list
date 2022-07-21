@@ -17,3 +17,10 @@ npm run dev
 #### 四、 vite 使用场景
 
 #### 五、 vite 原理
+
+开发一套微前端框架
+
+技术栈：
+前端：Vue2、Vue3、React15、React16
+后端：Koa
+发布平台：Express
